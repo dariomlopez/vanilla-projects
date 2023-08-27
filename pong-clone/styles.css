@@ -1,15 +1,84 @@
-* {
+/* General styles to reset by default styles */
+*, *::after, *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  margin: 10px 0 10px 0;
-  text-align: center;
+:root {
+  /*Hue es matiz. We create more variables*/
+  --hue: 100;
+  --saturation: 75%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 100%);
+  --background-color: hsl(var(--hue), var(--saturation), 50%);
 }
 
-.gameCanvas {
-  width: 100vw;
-  height: 100%;
+body {
+  background-color: var(--background-color);
+}
+
+/* Color, size and position of the paddles */
+.paddle {
+  --position: 50;   /*css variable to make reusable code*/
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  box-shadow: 0px 0px 1px 2px rgba(0,0,0,1);
+  /* Making sure they always have the same size no matter the screen */
+  width: 1.5vh;
+  height: 15vh;
+  /* setting the paddles in the middle of the screen vertically */
+  top: calc(var(--position) * 1vh);
+  transform: translateY(-50%);
+}
+
+/* Margin for both paddles */
+.paddle.left {
+  left: 1vw;
+}
+
+.paddle.right {
+  right: 1vw;
+}
+/* //////////////////////// */
+
+/* Styles for the ball */
+.ball {
+  /* position for the ball */
+  --horizontalX: 50;
+  --verticalY: 50;
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  
+  border-radius: 50%;
+  /* Making sure it always have the same size no matter the screen */
+  width: 2.5vh;
+  height: 2.5vh;
+  /* setting the ball in the middle of the screen */
+  top: calc(var(--horizontalX) * 1vh);
+  left: calc(var(--verticalY) * 1vw);
+  transform: translate(-50%, -50%);
+}
+
+/* Styles for the score */
+.score {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 7vh;
+  color: var(--foreground-color);
+}
+
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 15vh;
+  margin: 1vh 0;
+  opacity: 0.7;
+}
+
+.score > :first-child {
+  text-align: right;
+  border-right: 0.5vh solid var(--foreground-color);
 }
