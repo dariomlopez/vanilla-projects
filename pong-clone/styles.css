@@ -6,7 +6,7 @@
 }
 
 :root {
-  /*Hue es matiz. We create more variables*/
+  /*Hue es matiz (color,sonido...) en español. We create more variables*/
   --hue: 100;
   --saturation: 75%;
   --foreground-color: hsl(var(--hue), var(--saturation), 100%);
@@ -15,6 +15,7 @@
 
 body {
   background-color: var(--background-color);
+  overflow: hidden;
 }
 
 /* Color, size and position of the paddles */
@@ -50,7 +51,7 @@ body {
 
   position: absolute;
   background-color: var(--foreground-color);
-  
+  box-shadow: 0px 0px 1px 1.5px rgba(0,0,0,0.75);
   border-radius: 50%;
   /* Making sure it always have the same size no matter the screen */
   width: 2.5vh;
