@@ -57,8 +57,8 @@ body {
   width: 2.5vh;
   height: 2.5vh;
   /* setting the ball in the middle of the screen */
-  top: calc(var(--horizontalX) * 1vh);
-  left: calc(var(--verticalY) * 1vw);
+  top: calc(var(--verticalY) * 1vh);
+  left: calc(var(--horizontalX) * 1vw);
   transform: translate(-50%, -50%);
 }
 
@@ -69,6 +69,7 @@ body {
   font-weight: bold;
   font-size: 7vh;
   color: var(--foreground-color);
+  user-select: none;
 }
 
 .score > * {

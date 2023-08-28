@@ -56,14 +56,14 @@ export default class Ball {
       playgroundRect.bottom >= window.innerHeight ||
       playgroundRect.top <= 0
     ){
-      this.ballDirection.horizontalPosition *= -1;
+      this.ballDirection.verticalPosition *= -1;
     }
 
     if (
       playgroundRect.right >= window.innerWidth ||
       playgroundRect.left <= 0
     ){
-      this.ballDirection.verticalPosition *= -1;
+      this.ballDirection.horizontalPosition *= -1;
     }
   }
 };
