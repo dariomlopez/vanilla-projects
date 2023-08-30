@@ -4,22 +4,22 @@ const velocityIncrease = 0.000001;
 export default class Ball {
   constructor(ballElement) {
     this.ballElement = ballElement;
-    this.resetBallProps();
+    this.resetBallPosition();
   }
 
-  get horizontalPosition() {
+  get horizontalDirect() {
     return parseFloat(getComputedStyle(this.ballElement).getPropertyValue("--horizontalX"));
   }
 
-  set horizontalPosition(horizontalValue) {
+  set horizontalDirect(horizontalValue) {
     this.ballElement.style.setProperty("--horizontalX", horizontalValue);
   }
 
-  get verticalPosition() {
+  get verticalDirect() {
     return parseFloat(getComputedStyle(this.ballElement).getPropertyValue("--verticalY"));
   }
 
-  set verticalPosition(verticalValue) {
+  set verticalDirect(verticalValue) {
     this.ballElement.style.setProperty("--verticalY", verticalValue);
   }
 
@@ -27,27 +27,27 @@ export default class Ball {
     return this.ballElement.getBoundingClientRect();
   }
 
-  resetBallProps() {
-    this.horizontalPosition = 50;
-    this.verticalPosition = 50;
+  resetBallPosition() {
+    this.horizontalDirect = 50;
+    this.verticalDirect = 50;
     this.ballDirection = {
-      horizontalPosition: 0
+      horizontalDirect: 0
     }
     while (
-      Math.abs(this.ballDirection.horizontalPosition) <= 0.2 || Math.abs(this.ballDirection.horizontalPosition >= 0.9)
+      Math.abs(this.ballDirection.horizontalDirect) <= 0.2 || Math.abs(this.ballDirection.horizontalDirect >= 0.9)
     ){
       const headingDirection = randomNumber (0, 2 * Math.PI);
       this.ballDirection = {
-        horizontalPosition: Math.cos(headingDirection),
-        verticalPosition: Math.sin(headingDirection)
+        horizontalDirect: Math.cos(headingDirection),
+        verticalDirect: Math.sin(headingDirection)
       }
     }
     this.velocity = initialVelocity;
   }
 
-  updateBallPosition(delta) {
-    this.horizontalPosition += this.ballDirection.horizontalPosition * this.velocity * delta;
-    this.verticalPosition += this.ballDirection.verticalPosition * this.velocity * delta;
+  updateBallPosition(delta, paddleRectangle) {
+    this.horizontalDirect += this.ballDirection.horizontalDirect * this.velocity * delta;
+    this.verticalDirect += this.ballDirection.verticalDirect * this.velocity * delta;
     this.velocity += velocityIncrease * delta;
     console.log(this.velocity)
     const playgroundRect = this.playgroundRect();
@@ -56,18 +56,31 @@ export default class Ball {
       playgroundRect.bottom >= window.innerHeight ||
       playgroundRect.top <= 0
     ){
-      this.ballDirection.verticalPosition *= -1;
-    }
+      this.ballDirection.verticalDirect *= -1;
+    };
+
+    if (paddleRectangle.some(paddle => paddleCollision(paddle, playgroundRect))){
+      this.ballDirection.horizontalDirect *= -1;
+    };
 
     if (
       playgroundRect.right >= window.innerWidth ||
       playgroundRect.left <= 0
     ){
-      this.ballDirection.horizontalPosition *= -1;
+      this.ballDirection.horizontalDirect *= -1;
     }
   }
 };
 
 function randomNumber (min, max){
   return Math.random() * (max - min) + min;
+}
+
+function paddleCollision (paddleLeft, paddleRight){
+  return (
+    paddleLeft.left <= paddleRight.right &&
+    paddleLeft.right >= paddleRight.left &&
+    paddleLeft.top <= paddleRight.bottom &&
+    paddleLeft.bottom >= paddleRight.top
+    )
 }
