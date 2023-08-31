@@ -3,22 +3,81 @@
   margin: 0;
 }
 
-.password-generator {
+body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-content: center;
   text-align: center;
+  background-color: blanchedalmond;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+}
+
+h1 {
+  margin: 15px;
+}
+
+.password-generator {
+  display: inline-block;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  flex-direction: column;
   width: 500px;
-  height: 890px;
+  height: 400px;
   background-color: rgb(227, 172, 104);
+  box-shadow: 0 0 1px 1px;
 }
 
 #password-field {
-  font-size: 16px; /* Ajusta el tamaño de la fuente según tus preferencias */
-  width: 235px;
+  font-size: 16px;
+  height: 23px;
+  width: 240px;
   text-align: center;
+  margin-top: 15px;
+  border-radius: 8px;
 }
 
 #password-field:hover{
+  cursor: pointer;
+  box-shadow: 0 0 5px 1px;
+}
+
+#copy-password {
+  width: 50px;
+  height: 25px;
+  border-radius: 10px;
+  background: radial-gradient(circle, rgba(99,143,255,1) 0%, rgba(0,255,57,1) 100%);
+  color: rgb(252, 251, 251);
+  font-weight: 600;
+  font-size: 16px;
+  text-shadow: 1px 0 rgb(0, 0, 0), 
+  -1px 0 rgb(0, 0, 0), 
+  0 1px rgb(0, 0, 0), 
+  0 -1px rgb(0, 0, 0), 
+  1px 1px rgb(0, 0, 0), 
+  -1px -1px rgb(0, 0, 0), 
+  1px -1px rgb(0, 0, 0), 
+  -1px 1px rgb(0, 0, 0);
+}
+
+#copy-password:hover {
+  background: radial-gradient(circle, rgba(119,255,99,1) 0%, rgba(99,143,255,1) 100%);
+  cursor: pointer;
+}
+
+#generate-button {
+  width: 200px;
+  height: 25px;
+  border-radius: 20px;
+  font-weight: 700;
+  background: linear-gradient(0deg, rgb(108, 41, 67) 20%, rgb(121, 111, 227) 60%);
+  color: rgb(252, 251, 251);
+  margin-top: 15px;
+}
+
+#generate-button:hover {
+  background: linear-gradient(0deg, rgb(99, 138, 255) 20%, rgb(84, 48, 183) 60%);
   cursor: pointer;
 }
