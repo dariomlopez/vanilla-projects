@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Akshar|Adamina|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Alata|Akshar|Adamina|Roboto');
 
 *, *::after, *::before {
   padding: 0;
@@ -12,7 +12,7 @@ body {
   align-content: center;
   text-align: center;
   background-color: rgb(249, 180, 52);
-  font-family: Akshar, Adamina, Roboto, Oxygen, Geneva, Tahoma, sans-serif;
+  font-family: Alata, Akshar, Adamina, Roboto, Oxygen, Geneva, Tahoma, sans-serif;
   font-size: 16px;
 }
 
@@ -34,14 +34,13 @@ h1 {
 }
 
 #password-field {
-  font-size: 17px;
+  font-size: 15px;
   height: 23px;
   width: 240px;
   text-align: center;
   margin-top: 15px;
   border-radius: 8px;
-  font-family: Akshar, Adamina, Roboto, Oxygen, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
+  font-family: Alata, Akshar, Adamina, Roboto, Oxygen, Geneva, Tahoma, sans-serif;
 }
 
 #password-field:hover{
