@@ -3,10 +3,14 @@
   margin: 0;
 }
 
-body {
+.password-generator {
   display: flex;
   justify-content: center;
+  align-content: center;
   text-align: center;
+  width: 500px;
+  height: 890px;
+  background-color: rgb(227, 172, 104);
 }
 
 #password-field {
