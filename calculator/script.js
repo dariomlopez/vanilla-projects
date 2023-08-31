@@ -77,7 +77,7 @@ function generatePassword() {
   if (includeSymbols.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getSymbol));
   }
-  
+
   if (selectedChars.length === 0) {
     return ("Please select at least one option.");
   }
@@ -123,7 +123,7 @@ copyButton.addEventListener("click", () => {
       navigator.clipboard.writeText(passwordInput.value)
         .then(() => {
           alert("Password copied to clipboard")
-          /** Future idea to create a personalized alert message*/
+  /** Future idea: to create a personalized alert message*/
           // let copyAlert = document.createElement("div");
           // copyAlert.classList.add("alert")
           // copyAlert.textContent = "Copied";
@@ -133,7 +133,7 @@ copyButton.addEventListener("click", () => {
           alert("Copy failed:", error);
         });
         
-        /** Future idea to create a personalized alert message */
+  /** Future idea: to create a personalized alert message */
         // setTimeout(() => {
         //   document.querySelector(".alert").style.display = "none";
         //   document.body.removeChild(copyAlert);
