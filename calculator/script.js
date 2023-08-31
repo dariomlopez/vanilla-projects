@@ -35,15 +35,19 @@ function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
   
-function generatePassword() {
+function updateSelectedChars() {
+
+  selectedChars = [];
+
   /** const to save the value of the slider */
   const lengthPass = parseInt(lengthPassInput.value);
-
+  
+  /** Check if the checkbox is slected */
   if (includeLower.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getLowerCase));
   }
   if (includeUpper.checked) {
-    selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getUpperCase));
+    selectedChars = selectedChars.concat(Array.from({ length: lengthPass}, getUpperCase));
   }
   if (includeNumbers.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getNumber));
@@ -51,7 +55,29 @@ function generatePassword() {
   if (includeSymbols.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getSymbol));
   }
+}
 
+function generatePassword() {
+
+  selectedChars = [];
+
+  /** const to save the value of the slider */
+  const lengthPass = parseInt(lengthPassInput.value);
+  
+  /** Check if the checkbox is slected */
+  if (includeLower.checked) {
+    selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getLowerCase));
+  }
+  if (includeUpper.checked) {
+    selectedChars = selectedChars.concat(Array.from({ length: lengthPass}, getUpperCase));
+  }
+  if (includeNumbers.checked) {
+    selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getNumber));
+  }
+  if (includeSymbols.checked) {
+    selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getSymbol));
+  }
+  
   if (selectedChars.length === 0) {
     return ("Please select at least one option.");
   }
@@ -61,16 +87,21 @@ function generatePassword() {
     const randomIndex = Math.floor(Math.random() * selectedChars.length);
     password += selectedChars[randomIndex];
   }
-
   return password;
 }
 
 /** Update the value of the lengthPass */
 lengthPassInput.addEventListener("input", () => {
   lengthPassValue.textContent = lengthPassInput.value;
+  updateSelectedChars();
   const password = generatePassword();
-  passwordInput.value = password; 
+  passwordInput.value = password;
 });
+
+includeLower.addEventListener("change", updateSelectedChars);
+includeUpper.addEventListener("change", updateSelectedChars);
+includeNumbers.addEventListener("change", updateSelectedChars);
+includeSymbols.addEventListener("change", updateSelectedChars);
 
 generateButton.addEventListener("click", () => {
   const password = generatePassword();
