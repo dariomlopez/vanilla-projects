@@ -8,7 +8,7 @@ const generateButton = document.getElementById("generate-button");
 const lengthPassInput = document.getElementById("lengthPass");
 /**Span field showing the number of characters */
 const lengthPassValue = document.getElementById("lengthPassValue");
-/**Input elements with checkboxes */
+/**Input checkboxes */
 const includeLower = document.getElementById("includeLower");
 const includeUpper = document.getElementById("includeUpper");
 const includeNumbers = document.getElementById("includeNumbers");
@@ -18,23 +18,27 @@ const includeSymbols = document.getElementById("includeSymbols");
 const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-","+", "=", "{", "[", "}", "]", ";", ":", "<", ",", ">", ".", "?", "/"];
 
 let selectedChars = [];
-/** Getting one symbol */
+/** Getting symbols from the array*/
 function getSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)]
 }
- 
+
+/** Getting lowercase letters from Unicode */
 function getLowerCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
+/** Getting uppercase letters from Unicode */
 function getUpperCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
+/** Getting numbers from Unicode */
 function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
-  
+
+/** Check if there's a checkbox checked */  
 function updateSelectedChars() {
 
   selectedChars = [];
@@ -42,7 +46,7 @@ function updateSelectedChars() {
   /** const to save the value of the slider */
   const lengthPass = parseInt(lengthPassInput.value);
   
-  /** Check if the checkbox is slected */
+  /** Check which checkbox is selected */
   if (includeLower.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getLowerCase));
   }
@@ -64,7 +68,7 @@ function generatePassword() {
   /** const to save the value of the slider */
   const lengthPass = parseInt(lengthPassInput.value);
   
-  /** Check if the checkbox is slected */
+  /** Check which checkbox is selected */
   if (includeLower.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getLowerCase));
   }
@@ -90,7 +94,7 @@ function generatePassword() {
   return password;
 }
 
-/** Update the value of the lengthPass */
+/** Update the value of the lengthPass and show it in the input */
 lengthPassInput.addEventListener("input", () => {
   lengthPassValue.textContent = lengthPassInput.value;
   updateSelectedChars();
@@ -98,11 +102,13 @@ lengthPassInput.addEventListener("input", () => {
   passwordInput.value = password;
 });
 
+/** Check out if the checkboxes are checked */
 includeLower.addEventListener("change", updateSelectedChars);
 includeUpper.addEventListener("change", updateSelectedChars);
 includeNumbers.addEventListener("change", updateSelectedChars);
 includeSymbols.addEventListener("change", updateSelectedChars);
 
+/** EventListener when you click the button "generate password" it calls generatePassword function */
 generateButton.addEventListener("click", () => {
   const password = generatePassword();
   passwordInput.value = password;
@@ -113,7 +119,7 @@ passwordInput.addEventListener("mousedown", event => {
   event.preventDefault();
 });
 
-/** Adding a functionality to copy button */
+/** Adding functionality to copy button. Checks if there's a password */
 copyButton.addEventListener("click", () => {
   if (
     passwordInput.value && 

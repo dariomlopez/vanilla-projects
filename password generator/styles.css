@@ -21,9 +21,11 @@ h1 {
   font-size: 1.5em;
 }
 
+/*Styles for the elements in the div password-generator*/
 .password-generator {
   display: inline-block;
   justify-content: center;
+  align-content: center;
   align-self: center;
   text-align: center;
   flex-direction: column;
@@ -31,12 +33,14 @@ h1 {
   height: 240px;
   background-color: rgb(253, 221, 174);
   box-shadow: 0 0 1px 1px;
+  user-select: none;
 }
 
+/* Styles for where the password is shown */
 #password-field {
   font-size: 15px;
   height: 23px;
-  width: 240px;
+  width: 235px;
   text-align: center;
   margin-top: 15px;
   border-radius: 8px;
@@ -48,6 +52,7 @@ h1 {
   box-shadow: 0 0 5px 1px;
 }
 
+/* Styles for the copy button */
 #copy-password {
   width: 50px;
   height: 25px;
@@ -56,6 +61,7 @@ h1 {
   color: rgb(252, 251, 251);
   font-weight: 600;
   font-size: 16px;
+  /*This style make looks like the letters have a border*/
   text-shadow: 1px 0 rgb(0, 0, 0), 
   -1px 0 rgb(0, 0, 0), 
   0 1px rgb(0, 0, 0), 
@@ -64,6 +70,7 @@ h1 {
   -1px -1px rgb(0, 0, 0), 
   1px -1px rgb(0, 0, 0), 
   -1px 1px rgb(0, 0, 0);
+  z-index: 99;
 }
 
 #copy-password:hover {
@@ -71,6 +78,7 @@ h1 {
   cursor: pointer;
 }
 
+/*Styles for generate button*/
 #generate-button {
   width: 200px;
   height: 25px;
