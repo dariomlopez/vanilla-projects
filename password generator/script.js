@@ -38,12 +38,13 @@ function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-/** Check if there's a checkbox checked */  
+/** Check if there's a checkbox checked and depending on the box checked it shows the desired characters */  
 function updateSelectedChars() {
 
+  /** Update selectedChars to an empty array */
   selectedChars = [];
 
-  /** const to save the value of the slider */
+  /** const to save the value of the slider and get the desired password length */
   const lengthPass = parseInt(lengthPassInput.value);
   
   /** Check which checkbox is selected */
@@ -63,6 +64,7 @@ function updateSelectedChars() {
 
 function generatePassword() {
 
+  /** Update selectedChars to an empty array */
   selectedChars = [];
 
   /** const to save the value of the slider */
@@ -87,6 +89,7 @@ function generatePassword() {
   }
 
   let password = "";
+  /**For loop that goes from 0 to the length of the value of lengthPass */
   for (let i = 0; i < lengthPass; i++) {
     const randomIndex = Math.floor(Math.random() * selectedChars.length);
     password += selectedChars[randomIndex];
