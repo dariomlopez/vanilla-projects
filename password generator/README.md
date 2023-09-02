@@ -1,0 +1,1 @@
+Random password generator made with html, css and javascript using DOM manipulation
