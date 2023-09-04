@@ -1,14 +1,14 @@
-/**Input where the password is shown */
+/**Input element where the password is shown */
 const passwordInput = document.getElementById("password-field");
-/**Copy button element */
+/** Copy button element */
 const copyButton = document.getElementById("copy-password");
-/**Button generate password element */
+/** Button generate password element */
 const generateButton = document.getElementById("generate-button");
-/**Range input */
+/** const to save the element input type range */
 const lengthPassInput = document.getElementById("lengthPass");
-/**Span field showing the number of characters */
+/**Span field element showing the number of characters */
 const lengthPassValue = document.getElementById("lengthPassValue");
-/**Input checkboxes */
+/** const to save the input checkboxes elements */
 const includeLower = document.getElementById("includeLower");
 const includeUpper = document.getElementById("includeUpper");
 const includeNumbers = document.getElementById("includeNumbers");
@@ -70,7 +70,7 @@ function generatePassword() {
   /** const to save the desired length of the password */
   const lengthPass = parseInt(lengthPassInput.value);
   
-  /** Check which checkbox is selected */
+  /** Check which checkbox is selected and with concat method saves the array in selectedChars array without modifying it */
   if (includeLower.checked) {
     selectedChars = selectedChars.concat(Array.from({ length: lengthPass }, getLowerCase));
   }
@@ -97,7 +97,7 @@ function generatePassword() {
   return password;
 }
 
-/** Update the value of the lengthPass and show it in the input */
+/** Update the value of the lengthPass and show it in the input and update the number of characters in the password */
 lengthPassInput.addEventListener("input", () => {
   lengthPassValue.textContent = lengthPassInput.value;
   updateSelectedChars();
