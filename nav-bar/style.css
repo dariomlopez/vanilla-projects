@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: inline-block;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+ul {
+  width: 100vw;
+}
+
+li {
+  /* position: absolute; */
+  display: inline;
+}
+

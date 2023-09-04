@@ -9,3 +9,7 @@ table, caption{
 th, td {
     border: 1px dashed black;
   }
+
+  td:nth-of-type(odd) {
+    background-color: rgb(159, 237, 185);
+  }
