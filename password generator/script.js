@@ -67,7 +67,7 @@ function generatePassword() {
   /** Update selectedChars to an empty array */
   selectedChars = [];
 
-  /** const to save the value of the slider */
+  /** const to save the desired length of the password */
   const lengthPass = parseInt(lengthPassInput.value);
   
   /** Check which checkbox is selected */
