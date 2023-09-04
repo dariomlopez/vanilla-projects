@@ -1,0 +1,15 @@
+table, caption{
+  background-color:grey;
+  color:black;
+  font-size:18px;
+  border: 1px black;
+  }
+
+  table, th, td {
+    border: 1px dashed black;
+    text-align: center;
+  }
+
+  /* td {
+    text-align: center;
+  } */
