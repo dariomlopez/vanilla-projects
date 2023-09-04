@@ -3,13 +3,9 @@ table, caption{
   color:black;
   font-size:18px;
   border: 1px black;
+  text-align: center;
   }
 
-  table, th, td {
+th, td {
     border: 1px dashed black;
-    text-align: center;
   }
-
-  /* td {
-    text-align: center;
-  } */
