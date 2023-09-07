@@ -13,3 +13,12 @@ th, td {
   td:nth-of-type(odd) {
     background-color: rgb(159, 237, 185);
   }
+  
+  td:nth-of-type(even) {
+    background-color: rgb(182, 237, 159);
+  }
+  
+  
+  
+  
+  
