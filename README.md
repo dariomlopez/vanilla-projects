@@ -1,3 +1,3 @@
 # vanilla-projects
-Projects with just HTML, CSS or JavaScript.
+Projects and exercises with just HTML, CSS or JavaScript.
 No libraries or frameworks.
